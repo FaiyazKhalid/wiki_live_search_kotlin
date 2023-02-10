@@ -1,5 +1,6 @@
 package com.example.wikisearch.utils
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -22,7 +23,8 @@ class ViewBindingAdapter {
 
         @JvmStatic @BindingAdapter("textArray")
         fun loadText(view: TextView, array: List<String>?) {
-            view.text = array.toString()
+            view.text = array.toString().replace("""[\[\]]""".toRegex(),"")
+            view.isSelected = true
         }
     }
 }

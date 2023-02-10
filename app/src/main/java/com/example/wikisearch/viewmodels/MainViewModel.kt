@@ -1,14 +1,17 @@
 package com.example.wikisearch.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.*
+import androidx.navigation.fragment.NavHostFragment
 import com.example.wikisearch.models.ServiceResponse
 import com.example.wikisearch.repository.WikiRepository
 
 class MainViewModel(private val repository: WikiRepository) : ViewModel() {
     private val query = MutableLiveData<String>()
-    val wikiLiveData: LiveData<ServiceResponse> = Transformations.switchMap(query, ::getEpisodeFromRepo)
+    val wikiLiveData: LiveData<ServiceResponse> = Transformations.switchMap(query, ::getWikiDataFromRepo)
+    val wikiClickLiveData = MutableLiveData<String?>()
 
-    private fun getEpisodeFromRepo(pageNo: String) = repository.getWikiResponse()
+    private fun getWikiDataFromRepo(pageNo: String) = repository.getWikiResponse()
 
     fun getWikiSearch() = apply { query.value = "" }
 
@@ -17,5 +20,10 @@ class MainViewModel(private val repository: WikiRepository) : ViewModel() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return MainViewModel(repository) as T
         }
+    }
+
+    fun wikiItemClick(title:String){
+        Log.d("WikiCLick", "wikiItemClicked: ")
+        wikiClickLiveData.postValue(title)
     }
 }

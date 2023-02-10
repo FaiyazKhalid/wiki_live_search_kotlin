@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false);
+        //supportActionBar?.setIcon(R.drawable.app_logo);
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
         val navController = navHostFragment.navController
         appBarConfiguration = Builder(navController.graph).build()

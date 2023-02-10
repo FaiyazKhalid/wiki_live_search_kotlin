@@ -2,13 +2,16 @@ package com.example.wikisearch.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wikisearch.databinding.RowItemLayoutBinding
 import com.example.wikisearch.models.Page
 import com.example.wikisearch.utils.SearchRecyclerAdapter.MyViewHolder
+import com.example.wikisearch.viewmodels.MainViewModel
 
 class SearchRecyclerAdapter(
     var searchList: ArrayList<Page>,
+    private val viewModel:MainViewModel
 ) :
     RecyclerView.Adapter<MyViewHolder>() {
     private lateinit var binding: RowItemLayoutBinding
@@ -20,6 +23,7 @@ class SearchRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        binding.viewModel = viewModel
         holder.bind(searchList[holder.adapterPosition])
     }
 

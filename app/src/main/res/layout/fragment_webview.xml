@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/webview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        />
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/start_animation"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:src="@drawable/wiki" />
+    </FrameLayout>
 </layout>

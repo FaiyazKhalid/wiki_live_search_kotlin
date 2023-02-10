@@ -1,27 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.WikiSearch.AppBarOverlay">
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.WikiSearch.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.WikiSearch.AppBarOverlay">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                android:textAlignment="center"
+                app:popupTheme="@style/Theme.WikiSearch.PopupOverlay"
+                app:titleTextColor="@color/black">
 
-    <include layout="@layout/content_main" />
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                    <pl.droidsonroids.gif.GifImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/wiki" />
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/searchView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:iconifiedByDefault="false"
+                        android:queryHint="Search Wikipedia"
+                        android:shadowColor="@color/black"
+                        app:defaultQueryHint="Search Wikipedia" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include layout="@layout/content_main" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
