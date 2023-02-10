@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wikisearch.utils.CustomAdapter
+import com.example.wikisearch.utils.SearchRecyclerAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.wikisearch.databinding.FragmentSearchBinding
@@ -29,8 +29,7 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         viewModel = ViewModelProvider(
-            requireActivity(),
-            MainViewModel.Factory(repository = repository)
+            requireActivity(), MainViewModel.Factory(repository = repository)
         )[MainViewModel::class.java]
 
         binding = FragmentSearchBinding.inflate(inflater, container, false)
@@ -41,6 +40,7 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewState = MainViewState()
         binding.viewState = viewState
+
         viewModel.wikiLiveData.observe(viewLifecycleOwner) {
             viewState.apiInProgress = false
             if (it.isSuccess) {
@@ -49,19 +49,15 @@ class SearchFragment : Fragment() {
                 viewState.setError(it.message)
             }
         }
-
         viewModel.getWikiSearch()
     }
 
     private fun initRecyclerView(searchList: ArrayList<Page>) {
-        // get the reference of RecyclerView
         val recyclerView = binding.recyclerview
-        recyclerView.layoutManager =
-            LinearLayoutManager(requireContext()) // set LayoutManager to RecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.hasFixedSize()
-        //  call the constructor of CustomAdapter to send the reference and data to Adapter
-        val customAdapter = CustomAdapter(requireContext(), searchList, this@SearchFragment)
-        recyclerView.adapter = customAdapter // set the Adapter to RecyclerView
+        val searchRecyclerAdapter = SearchRecyclerAdapter(searchList)
+        recyclerView.adapter = searchRecyclerAdapter // set the Adapter to RecyclerView
     }
 
 }

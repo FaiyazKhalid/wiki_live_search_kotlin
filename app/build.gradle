@@ -54,5 +54,5 @@ dependencies {
     //shimmer layout
     implementation 'com.facebook.shimmer:shimmer:0.4.0'
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
+    implementation 'androidx.core:core-splashscreen:1.0.0'
 }
