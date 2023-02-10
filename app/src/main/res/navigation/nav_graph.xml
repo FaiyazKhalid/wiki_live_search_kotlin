@@ -27,17 +27,5 @@
         <argument
             android:name="title"
             app:argType="string" />
-        <argument
-            android:name="content"
-            app:argType="string" />
-        <argument
-            android:name="date"
-            app:argType="string" />
-        <argument
-            android:name="category"
-            app:argType="string" />
-        <argument
-            android:name="image"
-            app:argType="string" />
     </fragment>
 </navigation>

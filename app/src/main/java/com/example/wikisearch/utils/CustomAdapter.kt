@@ -11,7 +11,10 @@ import com.example.wikisearch.R
 import com.bumptech.glide.Glide
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.example.wikisearch.models.Page
+import com.example.wikisearch.ui.SearchFragmentDirections
 import java.util.ArrayList
 
 class CustomAdapter(var context: Context, var searchList: ArrayList<Page>, var fragment: Fragment) :
@@ -28,25 +31,25 @@ class CustomAdapter(var context: Context, var searchList: ArrayList<Page>, var f
         // set the data in items
         val pos = holder.adapterPosition
         holder.name.text = searchList[pos].title
-        /*        holder.category.setText(movieList.get(pos).getAuthor());
-        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault());
-        String date = dateFormat.format(Objects.requireNonNull(movieList.get(pos).getPublishedAt()));
-        holder.date.setText(date);
-        // holder.image.setImageResource(movieList.get(pos).title);
-        // implement setOnClickListener event on item view.
-        loadImage(holder.image, movieList.get(pos).getUrlToImage());*/holder.itemView.setOnClickListener { // open another activity on item click
-
-            /*  NavHostFragment.findNavController(fragment)
-                                .navigate(FirstFragmentDirections.actionFirstFragmentToSecondFragment(movieList.get(pos).getTitle(), movieList.get(pos).getContent(),date, movieList.get(pos).getAuthor(), movieList.get(pos).getUrlToImage()));
-        */
+        holder.category.text = searchList[pos].terms?.description.toString();
+        holder.category.isSelected = true
+        loadImage(holder.image, searchList[pos].thumbnail?.source.toString())
+        holder.itemView.setOnClickListener { // open another activity on item click
+            NavHostFragment.findNavController(fragment)
+                .navigate(
+                    SearchFragmentDirections.actionFirstFragmentToSecondFragment(
+                        searchList[pos].title.toString(),
+                    )
+                );
         }
     }
 
     private fun loadImage(imageView: ImageView, url: String) {
         Glide.with(imageView.context)
             .load(url) // image url
-            .placeholder(R.drawable.no_picture) // any placeholder to load at start
-            .error(R.drawable.no_picture) // any image in case of error
+            .placeholder(R.drawable.app_logo) // any placeholder to load at start
+            .error(R.drawable.app_logo) // any image in case of error
+            .transition(withCrossFade())
             .centerCrop()
             .into(imageView)
     }
@@ -59,15 +62,12 @@ class CustomAdapter(var context: Context, var searchList: ArrayList<Page>, var f
         // init the item view's
         var name: TextView
         var category: TextView
-        var date: TextView
         var image: ImageView
 
         init {
-
             // get the reference of item view's
             name = itemView.findViewById<View>(R.id.name) as TextView
-            category = itemView.findViewById<View>(R.id.category) as TextView
-            date = itemView.findViewById<View>(R.id.date) as TextView
+            category = itemView.findViewById<View>(R.id.description) as TextView
             image = itemView.findViewById<View>(R.id.image) as ImageView
         }
     }

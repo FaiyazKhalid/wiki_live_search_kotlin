@@ -20,4 +20,5 @@ object Constants {
     const val gpslimit = "10";
     const val prop = "pageimages|pageterms";
     const val titles = "Sachin T";
+    const val basePageUri="https://en.wikipedia.org/wiki/"
 }

@@ -7,8 +7,7 @@ import androidx.databinding.Bindable
 class MainViewState : BaseObservable() {
 
     @Bindable
-    val title = "Hello World, this is MVVM architecture with " +
-            "ViewModel, ViewState, Repository, LiveData and many more!"
+    val title = "Wiki Search Page"
 
     @Bindable
     var shrimmerVisibility = View.VISIBLE
