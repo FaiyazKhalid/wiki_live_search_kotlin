@@ -15,8 +15,8 @@ class WikiRepositoryImpl(private val apiService: ApiService) : WikiRepository {
         MutableLiveData<ServiceResponse>()
     }
 
-    override fun getWikiResponse(): LiveData<ServiceResponse> {
-        apiService.getWikiSearch().enqueue(object : Callback<WikiModelRoot> {
+    override fun getWikiResponse(text: String): LiveData<ServiceResponse> {
+        apiService.getWikiSearch(gpssearch = text).enqueue(object : Callback<WikiModelRoot> {
             override fun onFailure(call: Call<WikiModelRoot>, t: Throwable) {
                 _liveData.value = ServiceResponse(isSuccess = false, message = t.localizedMessage)
             }
@@ -34,5 +34,5 @@ class WikiRepositoryImpl(private val apiService: ApiService) : WikiRepository {
 }
 
 interface WikiRepository {
-    fun getWikiResponse(): LiveData<ServiceResponse>
+    fun getWikiResponse(text:String): LiveData<ServiceResponse>
 }

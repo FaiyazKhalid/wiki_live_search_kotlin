@@ -11,9 +11,9 @@ class MainViewModel(private val repository: WikiRepository) : ViewModel() {
     val wikiLiveData: LiveData<ServiceResponse> = Transformations.switchMap(query, ::getWikiDataFromRepo)
     val wikiClickLiveData = MutableLiveData<String?>()
 
-    private fun getWikiDataFromRepo(pageNo: String) = repository.getWikiResponse()
+    private fun getWikiDataFromRepo(text: String) = repository.getWikiResponse(text)
 
-    fun getWikiSearch() = apply { query.value = "" }
+    fun getWikiSearch(text: String) = apply { query.value = text }
 
     @Suppress("UNCHECKED_CAST")
     class Factory(private val repository: WikiRepository) : ViewModelProvider.Factory {

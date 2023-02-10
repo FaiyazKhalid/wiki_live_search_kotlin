@@ -1,6 +1,8 @@
 package com.example.wikisearch.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,10 @@ class MainActivity : AppCompatActivity() {
     private var appBarConfiguration: AppBarConfiguration? = null
     private lateinit var binding: ActivityMainBinding
 
+    companion object{
+         lateinit var viewState: MainViewState
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
@@ -31,7 +37,11 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         appBarConfiguration = Builder(navController.graph).build()
         setupActionBarWithNavController(this, navController, appBarConfiguration!!)
+        viewState = MainViewState()
+        binding.viewState = viewState
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)

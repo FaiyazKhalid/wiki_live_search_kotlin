@@ -10,10 +10,13 @@ class MainViewState : BaseObservable() {
     val title = "Wiki Search Page"
 
     @Bindable
-    var shrimmerVisibility = View.VISIBLE
+    var shrimmerVisibility = View.INVISIBLE
 
     @Bindable
-    var recyclerViewVisibility = View.VISIBLE
+    var emptyViewVisibility = View.VISIBLE
+
+    @Bindable
+    var recyclerViewVisibility = View.GONE
 
     @Bindable
     var errorMessageVisibility = View.GONE
@@ -21,17 +24,36 @@ class MainViewState : BaseObservable() {
     @Bindable
     var errorMessageText: String? = null
 
-    var apiInProgress = true
+    var apiInProgress = false
         set(value) {
             field = value
             if (field) {
                 shrimmerVisibility = View.VISIBLE
+                recyclerViewVisibility = View.VISIBLE
+                errorMessageVisibility = View.GONE
+                emptyViewVisibility = View.GONE
+            } else {
+                recyclerViewVisibility = View.VISIBLE
+                shrimmerVisibility = View.INVISIBLE
+                errorMessageVisibility = View.GONE
+                emptyViewVisibility = View.GONE
+            }
+            notifyChange()
+        }
+
+    var emptyDataRequest = true
+        set(value) {
+            field = value
+            if (field) {
+                shrimmerVisibility = View.INVISIBLE
+                emptyViewVisibility = View.VISIBLE
                 recyclerViewVisibility = View.GONE
                 errorMessageVisibility = View.GONE
             } else {
                 recyclerViewVisibility = View.VISIBLE
-                shrimmerVisibility = View.GONE
+                shrimmerVisibility = View.INVISIBLE
                 errorMessageVisibility = View.GONE
+                emptyViewVisibility = View.GONE
             }
             notifyChange()
         }

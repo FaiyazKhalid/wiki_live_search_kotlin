@@ -26,7 +26,7 @@ interface ApiService {
         @Query("pilimit") pilimit: String="10",
         @Query("wbptterms") wbptterms: String="description",
         @Query("gpssearch") gpssearch: String="Sachin T",
-        @Query("gpslimit") gpslimit: String="10",
+        @Query("gpslimit") gpslimit: String="100",
         //@Query("titles") titles: String?
     ): Call<WikiModelRoot>
 
