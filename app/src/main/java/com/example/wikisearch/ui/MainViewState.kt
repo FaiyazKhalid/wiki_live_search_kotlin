@@ -13,6 +13,12 @@ class MainViewState : BaseObservable() {
     var shrimmerVisibility = View.INVISIBLE
 
     @Bindable
+    var micVisibility = View.VISIBLE
+
+    @Bindable
+    var micListening = View.GONE
+
+    @Bindable
     var emptyViewVisibility = View.VISIBLE
 
     @Bindable
@@ -58,6 +64,19 @@ class MainViewState : BaseObservable() {
             notifyChange()
         }
 
+
+    var micListenerState = false
+        set(value) {
+            field = value
+            if (field) {
+                micListening = View.VISIBLE
+                micVisibility = View.GONE
+            } else {
+                micListening = View.GONE
+                micVisibility = View.VISIBLE
+            }
+            notifyChange()
+        }
 
     fun setError(errorText: String) {
         errorMessageVisibility = View.VISIBLE

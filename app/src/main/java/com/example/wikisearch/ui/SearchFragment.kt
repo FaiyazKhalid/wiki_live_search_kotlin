@@ -1,5 +1,7 @@
 package com.example.wikisearch.ui
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
@@ -11,11 +13,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -27,8 +27,19 @@ import com.example.wikisearch.repository.WikiRepositoryImpl
 import com.example.wikisearch.room.entity.WikiRoomEntity
 import com.example.wikisearch.utils.RetrofitFactory
 import com.example.wikisearch.utils.SearchRecyclerAdapter
+import com.example.wikisearch.utils.VoiceRecognition
 import com.example.wikisearch.viewmodels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.single.PermissionListener
+import net.gotev.speech.GoogleVoiceTypingDisabledException
+import net.gotev.speech.Speech
+import net.gotev.speech.SpeechDelegate
+import net.gotev.speech.SpeechRecognitionNotAvailable
+import net.gotev.speech.ui.SpeechProgressView
 
 
 class SearchFragment : Fragment() {
@@ -64,7 +75,8 @@ class SearchFragment : Fragment() {
                 requireActivity().finish();
             }
             doubleBackToExitPressedOnce = true;
-            Snackbar.make(requireView(), "Please click BACK again to exit", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(requireView(), "Please click BACK again to exit", Snackbar.LENGTH_SHORT)
+                .show()
             Handler(Looper.getMainLooper()).postDelayed({
                 doubleBackToExitPressedOnce = false
             }, 2000)
@@ -78,6 +90,8 @@ class SearchFragment : Fragment() {
         searchView = requireActivity().findViewById(R.id.searchView)
         setUpSearch()
         initRecyclerView()
+        setUpVoiceSearch()
+        Speech.init(requireContext(), activity?.packageName);
 
         viewModel.wikiRoomLiveData.observe(viewLifecycleOwner) {
             viewState.emptyDataRequest = it.isNullOrEmpty()
@@ -148,6 +162,26 @@ class SearchFragment : Fragment() {
             viewModel.deleteAllData()
             viewState.emptyDataRequest = true
             true
+        }
+    }
+
+
+    private fun setUpVoiceSearch() {
+        val  speechProgressView = requireActivity().findViewById<SpeechProgressView>(R.id.progress_speech)
+        val heights = intArrayOf(30, 38, 29, 40, 27)
+        speechProgressView.setBarMaxHeightsInDp(heights);
+        val microphone = requireActivity().findViewById<ImageView>(R.id.microphone)
+        val voiceRecognition =
+            VoiceRecognition(requireContext(), viewState, searchView, speechProgressView)
+
+        microphone.setOnClickListener {
+            when (ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.RECORD_AUDIO
+            ) == PackageManager.PERMISSION_GRANTED) {
+                true -> voiceRecognition.listenMic()
+                false -> voiceRecognition.takeMicPermission()
+            }
         }
     }
 

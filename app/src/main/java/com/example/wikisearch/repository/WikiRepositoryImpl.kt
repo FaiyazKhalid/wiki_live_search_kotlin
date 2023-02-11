@@ -46,8 +46,18 @@ class WikiRepositoryImpl(private val apiService: ApiService) : WikiRepository {
                             )
                         )
                     }
-                    insertRoomData(wikiData)
                 }
+                if(wikiData.size<=0){
+                    wikiData.add(
+                        WikiRoomEntity(
+                            0,
+                           "No Match Found",
+                            "",
+                           "Try with other keywords"
+                        )
+                    )
+                }
+                insertRoomData(wikiData)
 
                 _liveData.value = ServiceResponse(
                     isSuccess = response.code() == 200,

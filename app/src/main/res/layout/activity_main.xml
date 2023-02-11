@@ -36,22 +36,51 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:paddingHorizontal="10dp"
                     android:orientation="horizontal">
 
                     <pl.droidsonroids.gif.GifImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:layout_weight="0"
                         android:src="@drawable/wiki" />
 
                     <androidx.appcompat.widget.SearchView
                         android:id="@+id/searchView"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:iconifiedByDefault="false"
+                        android:layout_weight="2"
                         android:queryHint="Search Wikipedia"
                         android:shadowColor="@color/black"
                         app:defaultQueryHint="Search Wikipedia" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_weight="0"
+                        android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/microphone"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@color/white"
+                        android:visibility="@{viewState.micVisibility}"
+                        app:layout_constraintBottom_toBottomOf="@+id/searchView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/searchView"
+                        app:srcCompat="@drawable/ic_mic" />
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/linearLayout">
+                        <net.gotev.speech.ui.SpeechProgressView
+                            android:id="@+id/progress_speech"
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:visibility="@{viewState.micListening}" />
+                        </LinearLayout>
+                    </FrameLayout>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
 
