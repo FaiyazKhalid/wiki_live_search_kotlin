@@ -9,6 +9,7 @@ import com.example.wikisearch.models.WikiModelRoot
 import com.example.wikisearch.room.database.getDatabase
 import com.example.wikisearch.room.entity.WikiRoomEntity
 import com.example.wikisearch.utils.ApiService
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -58,6 +59,7 @@ class WikiRepositoryImpl(private val apiService: ApiService) : WikiRepository {
         return _liveData
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun insertRoomData(wikiRoomData: List<WikiRoomEntity>) {
         val wikiIds: ArrayList<Int> = ArrayList()
         wikiRoomData.map {
@@ -69,6 +71,7 @@ class WikiRepositoryImpl(private val apiService: ApiService) : WikiRepository {
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun deleteAllData() {
         GlobalScope.launch {
             getDatabase(WikiApp.appContext).wikiDao().deleteAll()
