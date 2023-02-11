@@ -40,7 +40,7 @@ class SearchFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
     private lateinit var searchView: SearchView
     var handler: Handler = Handler(Looper.getMainLooper())
-    var isSingleBackPressed = false
+    var doubleBackToExitPressedOnce = false
     lateinit var searchRecyclerAdapter: SearchRecyclerAdapter
 
 
@@ -60,14 +60,14 @@ class SearchFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            if (searchView.query.isNotBlank() || !viewState.emptyDataRequest) {
-                isSingleBackPressed = true
-                viewState.emptyDataRequest = true
-                searchView.setQuery("", false)
-            } else {
-
+            if (doubleBackToExitPressedOnce) {
                 requireActivity().finish();
             }
+            doubleBackToExitPressedOnce = true;
+            Snackbar.make(requireView(), "Please click BACK again to exit", Snackbar.LENGTH_SHORT).show()
+            Handler(Looper.getMainLooper()).postDelayed({
+                doubleBackToExitPressedOnce = false
+            }, 2000)
         }
     }
 
@@ -128,10 +128,6 @@ class SearchFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                if (isSingleBackPressed) {
-                    isSingleBackPressed = false
-                    return false
-                }
                 handler.removeCallbacksAndMessages(null);
                 if (newText.isNotBlank()) {
                     viewState.apiInProgress = true;
