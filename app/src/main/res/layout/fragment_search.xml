@@ -16,36 +16,24 @@
         android:background="@color/white"
         tools:context=".ui.SearchFragment">
 
-        <!--<com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmerFrameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:visibility="@{viewState.shrimmerVisibility}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1">
-
-            <include layout="@layout/shimmer" />
-        </com.facebook.shimmer.ShimmerFrameLayout>-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="@{viewState.recyclerViewVisibility}" />
 
-        <ImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/empty_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/back_logo"
+            app:lottie_fileName="wiki_anim.json"
+            app:lottie_autoPlay="true"
+           android:layout_marginBottom="150dp"
             android:visibility="@{viewState.emptyViewVisibility}"
-            android:layout_marginHorizontal="20dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/gray">
-        </ImageView>
+            app:lottie_loop="true"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

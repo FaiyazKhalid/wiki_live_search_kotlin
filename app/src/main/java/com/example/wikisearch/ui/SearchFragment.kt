@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -22,8 +23,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wikisearch.R
 import com.example.wikisearch.databinding.FragmentSearchBinding
-import com.example.wikisearch.models.Page
 import com.example.wikisearch.repository.WikiRepositoryImpl
+import com.example.wikisearch.room.entity.WikiRoomEntity
 import com.example.wikisearch.utils.RetrofitFactory
 import com.example.wikisearch.utils.SearchRecyclerAdapter
 import com.example.wikisearch.viewmodels.MainViewModel
@@ -39,7 +40,8 @@ class SearchFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
     private lateinit var searchView: SearchView
     var handler: Handler = Handler(Looper.getMainLooper())
-    var doubleBackToExitPressedOnce = false
+    var isSingleBackPressed = false
+    lateinit var searchRecyclerAdapter: SearchRecyclerAdapter
 
 
     override fun onCreateView(
@@ -58,17 +60,13 @@ class SearchFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            if(searchView.query.isNotBlank()){
-                searchView.setQuery("", true)
-            }else{
-                if (doubleBackToExitPressedOnce) {
-                    requireActivity().finish();
-                }
-                doubleBackToExitPressedOnce = true;
-                Snackbar.make(requireView(), "Please click BACK again to exit", Snackbar.LENGTH_SHORT).show()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    doubleBackToExitPressedOnce = false
-                }, 2000)
+            if (searchView.query.isNotBlank() || !viewState.emptyDataRequest) {
+                isSingleBackPressed = true
+                viewState.emptyDataRequest = true
+                searchView.setQuery("", false)
+            } else {
+
+                requireActivity().finish();
             }
         }
     }
@@ -79,19 +77,14 @@ class SearchFragment : Fragment() {
         binding.viewState = viewState
         searchView = requireActivity().findViewById(R.id.searchView)
         setUpSearch()
-        viewModel.wikiLiveData.observe(viewLifecycleOwner) {
-            viewState.emptyDataRequest= true
-            if (it.isSuccess) {
-                it.data?.query?.pages?.let { it1 ->  viewState.emptyDataRequest= false ; initRecyclerView(it1) }
-            } else {
-                viewState.emptyDataRequest= true
-                viewState.setError(it.message)
-            }
+        initRecyclerView()
 
+        viewModel.wikiRoomLiveData.observe(viewLifecycleOwner) {
+            viewState.emptyDataRequest = it.isNullOrEmpty()
+            updateData(it as ArrayList<WikiRoomEntity>?)
         }
 
         viewModel.wikiClickLiveData.observe(viewLifecycleOwner) {
-            Log.d("WikiCLick", "wikiLivedata: ")
             it?.let {
                 NavHostFragment.findNavController(this)
                     .navigate(SearchFragmentDirections.actionFirstFragmentToSecondFragment(it))
@@ -100,12 +93,16 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun initRecyclerView(searchList: ArrayList<Page>) {
+    private fun initRecyclerView() {
         val recyclerView = binding.recyclerview
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.hasFixedSize()
-        val searchRecyclerAdapter = SearchRecyclerAdapter(searchList, viewModel)
+        searchRecyclerAdapter = SearchRecyclerAdapter(null, viewModel)
         recyclerView.adapter = searchRecyclerAdapter // set the Adapter to RecyclerView
+    }
+
+    private fun updateData(searchList: ArrayList<WikiRoomEntity>?) {
+        searchRecyclerAdapter.updateData(searchList)
     }
 
     private fun setUpSearch() {
@@ -121,24 +118,42 @@ class SearchFragment : Fragment() {
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                viewState.apiInProgress = true
-                viewModel.getWikiSearch(query)
+                if (query.isNotBlank()) {
+                    viewState.apiInProgress = true
+                    viewModel.getWikiSearchResponse(query)
+                } else {
+                    viewModel.deleteAllData()
+                }
                 return false
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
+                if (isSingleBackPressed) {
+                    isSingleBackPressed = false
+                    return false
+                }
                 handler.removeCallbacksAndMessages(null);
-                handler.postDelayed({viewState.apiInProgress = true; viewModel.getWikiSearch(newText) }, 500)
+                if (newText.isNotBlank()) {
+                    viewState.apiInProgress = true;
+                    handler.postDelayed({
+                        viewModel.getWikiSearchResponse(
+                            newText
+                        )
+                    }, 500)
+                } else {
+                    viewModel.deleteAllData()
+                }
                 return false
             }
         })
 
         searchView.setOnCloseListener {
-            Log.i("SearchView:", "onClose")
             //searchView.onActionViewCollapsed()
-            searchView.setQuery("", true)
+            viewModel.deleteAllData()
+            viewState.emptyDataRequest = true
             true
         }
     }
+
 
 }

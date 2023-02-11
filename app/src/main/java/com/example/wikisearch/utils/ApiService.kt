@@ -20,13 +20,13 @@ interface ApiService {
         @Query("prop") prop: String="pageimages|pageterms",
         @Query("format") format: String="json",
         @Query("generator") generator: String="prefixsearch",
-        @Query("redirects") redirects: String = "1",
+        @Query("redirects") redirects: String = "",
         @Query("piprop") piprop: String="thumbnail",
-        @Query("pithumbsize") pithumbsize: String="50",
-        @Query("pilimit") pilimit: String="10",
+        @Query("pithumbsize") pithumbsize: String="200",
+        @Query("pilimit") pilimit: String="50",
         @Query("wbptterms") wbptterms: String="description",
-        @Query("gpssearch") gpssearch: String="Sachin T",
-        @Query("gpslimit") gpslimit: String="100",
+        @Query("gpssearch") gpssearch: String="",
+        @Query("gpslimit") gpslimit: String="50",
         //@Query("titles") titles: String?
     ): Call<WikiModelRoot>
 

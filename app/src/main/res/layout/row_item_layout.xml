@@ -7,7 +7,7 @@
             type="com.example.wikisearch.viewmodels.MainViewModel"/>
         <variable
             name="wikiData"
-            type="com.example.wikisearch.models.Page" />
+            type="com.example.wikisearch.room.entity.WikiRoomEntity" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -44,7 +44,7 @@
                     android:layout_height="40dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/app_logo"
-                    app:imageUrl="@{wikiData.thumbnail.source}" />
+                    app:imageUrl="@{wikiData.thumbnail}" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -57,13 +57,14 @@
                 android:singleLine="true"
                 android:textColor="#6F6F6F"
                 android:textSize="14sp"
+                android:text="@{wikiData.description}"
                 android:textStyle="normal"
                 android:layout_marginEnd="10dp"
                 app:layout_constraintBottom_toBottomOf="@id/image_card"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/image_card"
                 app:layout_constraintTop_toBottomOf="@id/name"
-                app:textArray="@{wikiData.terms.description}" />
+                 />
 
             <TextView
                 android:id="@+id/name"
@@ -74,6 +75,8 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="end"
                 app:layout_constraintBottom_toTopOf="@id/description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/image_card"

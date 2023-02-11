@@ -14,8 +14,8 @@ class ViewBindingAdapter {
         fun loadImage(view: ImageView, url: String?) {
             Glide.with(view.context)
                 .load(url) // image url
-                .placeholder(R.drawable.app_logo) // any placeholder to load at start
-                .error(R.drawable.app_logo) // any image in case of error
+                .placeholder(R.drawable.wiki_logo) // any placeholder to load at start
+                .error(R.drawable.wiki_logo) // any image in case of error
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .centerCrop()
                 .into(view)
