@@ -41,6 +41,7 @@ class SearchRecyclerAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(wikiItem: WikiRoomEntity) {
             binding.wikiData = wikiItem
+            binding.description.isSelected = true
         }
     }
 }
