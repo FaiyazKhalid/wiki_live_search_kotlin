@@ -28,6 +28,10 @@ This app is used to search Wikipedia with text and Voice input as well.
 <br>
 https://github.com/MayankChowdhary/WikiSearch/blob/main/apk/WikiSearchAndroid.apk
 <br><br>
+**Play Store Link:**
+Coming soon, App already publish and currently is in review phase
+Channel: https://play.google.com/store/apps/dev?id=6678975072765891553
+<br><br>
  <table style="width:100%; border:0px">
   <tr>
     <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot51.gif" >
