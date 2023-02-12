@@ -17,4 +17,16 @@ This app is used to search Wikipedia with text and Voice input as well.
  - Dexter    
  - Retrofit    
  - GSON
+ 
+ <table style="width:100%">
+  <tr>
+    <td WIDTH=500><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot5.gif" >
+</td>
+    <td WIDTH=500><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot2.jpg" >
+</td>
+    <td WIDTH=500><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot3.jpg" >
+</td>
+</tr>
+</table>
+
   
