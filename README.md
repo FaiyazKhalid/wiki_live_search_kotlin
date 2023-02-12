@@ -7,8 +7,8 @@ This app is used to search Wikipedia with text and Voice input as well.
  - Dependency Injection💉 
  - With Dagger2 🗡️ Hilt
  - Kotlin 💘 Java
- - MVVM   
- - Data Binding   
+ - MVVM🔥
+ - Data Binding ☢️ 
  - Speech Recognizer  
  - Live Data   
  - Jetpack Navigation    
