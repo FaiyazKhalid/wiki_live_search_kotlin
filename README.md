@@ -6,7 +6,8 @@ This app is used to search Wikipedia with text and Voice input as well.
  **Components Used:**   
  - Dependency Injection💉 
  - With Dagger2 🗡️ Hilt
- - Kotlin 💘 Java
+ - Kotlin 
+ - Java
  - MVVM🔥
  - ROOM 🕋
  - Data Binding ☢️ 
