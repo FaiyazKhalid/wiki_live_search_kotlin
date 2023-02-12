@@ -10,7 +10,7 @@ This app is used to search Wikipedia with text and Voice input as well.
  - MVVM🔥
  - ROOM 🕋
  - Data Binding ☢️ 
- - Speech Recognizer  
+ - Speech Recognizer🎙️
  - Live Data   
  - Jetpack Navigation    
  - Glide   
