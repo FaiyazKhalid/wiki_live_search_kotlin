@@ -16,7 +16,7 @@ This app is used to search Wikipedia with text and Voice input as well.
  - Coroutines   
  - Dexter    
  - Retrofit 
- - Google Fonts (MONDA.ttf)   
+ - Google Fonts Monda.ttf
  - GSON
  - GIT
  - Markdown 
