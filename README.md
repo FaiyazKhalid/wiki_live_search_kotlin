@@ -25,22 +25,22 @@ This app is used to search Wikipedia with text and Voice input as well.
  
  <table style="width:100%; border:0px">
   <tr>
-    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot5.gif" >
+    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot51.gif" >
 </td>
-    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot4.jpg" >
+    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot41.jpg" >
 </td>
-    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot1.jpg" >
+    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot11.jpg" >
 </td>
 </tr>
 </table>
 
  <table style="width:100%; border:0px">
   <tr>
-    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot3.jpg" >
+    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot31.jpg" >
 </td>
-    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot2.jpg" >
+    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot21.jpg" >
 </td>
-    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot6.jpg" >
+    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot61.jpg" >
 </td>
 </tr>
 </table>
