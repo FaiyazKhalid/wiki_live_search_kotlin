@@ -18,7 +18,7 @@ This app is used to search Wikipedia with text and Voice input as well.
  - Retrofit    
  - GSON
  
- <table style="width:100%">
+ <table style="width:100%" border="0">
   <tr>
     <td WIDTH=400><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot5.gif" >
 </td>
@@ -29,7 +29,7 @@ This app is used to search Wikipedia with text and Voice input as well.
 </tr>
 </table>
 
- <table style="width:100%">
+ <table style="width:100%" border="0">
   <tr>
     <td WIDTH=300><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot1.gif" >
 </td>
