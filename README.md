@@ -20,7 +20,7 @@ This app is used to search Wikipedia with text and Voice input as well.
  
  <table style="width:100%">
   <tr>
-    <td><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot1.jpg" >
+    <td><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot5.jpg" >
 </td>
     <td><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot2.jpg" >
 </td>
