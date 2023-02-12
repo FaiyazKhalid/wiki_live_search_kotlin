@@ -20,11 +20,11 @@ This app is used to search Wikipedia with text and Voice input as well.
  
  <table style="width:100%">
   <tr>
-    <td><img src="https://github.com/MayankChowdhary/WikiSearch/blob/master/ScreenShots/ScreenShot1.jpg" >
+    <td><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot1.jpg" >
 </td>
-    <td><img src="https://github.com/MayankChowdhary/WikiSearch/blob/master/ScreenShots/ScreenShot2.jpg" >
+    <td><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot2.jpg" >
 </td>
-    <td><img src="https://github.com/MayankChowdhary/WikiSearch/blob/master/ScreenShots/ScreenShot3.jpg" >
+    <td><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot3.jpg" >
 </td>
 </tr>
 </table>
