@@ -8,13 +8,13 @@ This app is used to search Wikipedia with text and Voice input as well.
  - With Dagger2 🗡️ Hilt
  - Kotlin 💘 Java
  - MVVM🔥
+ - ROOM Database 🕋
  - Data Binding ☢️ 
  - Speech Recognizer  
  - Live Data   
  - Jetpack Navigation    
  - Glide   
- - Lottie Animations   
- - ROOM Database   
+ - Lottie Animations
  - Coroutines   
  - Dexter    
  - Retrofit 
