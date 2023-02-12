@@ -29,4 +29,15 @@ This app is used to search Wikipedia with text and Voice input as well.
 </tr>
 </table>
 
+ <table style="width:100%">
+  <tr>
+    <td WIDTH=500><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot1.gif" >
+</td>
+    <td WIDTH=500><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot4.jpg" >
+</td>
+    <td WIDTH=500><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot6.jpg" >
+</td>
+</tr>
+</table>
+
   
