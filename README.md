@@ -4,7 +4,8 @@ Wikipedia Search Android native Kotlin App
 This app is used to search Wikipedia with text and Voice input as well.
 
  **Components Used:**   
- - Dependency Injection💉 With Dagger2 🗡️ Hilt
+ - Dependency Injection💉 
+ - With Dagger2 🗡️ Hilt
  - Kotlin🔥
  - MVVM   
  - Data Binding   
