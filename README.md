@@ -4,7 +4,7 @@ Wikipedia Search Android native Kotlin App
 This app is used to search Wikipedia with text and Voice input as well.
 
  **Components Used:**   
- - Kotlin   
+ - Kotlin🔥
  - MVVM   
  - Data Binding   
  - Speech Recognizer  
