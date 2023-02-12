@@ -21,7 +21,7 @@ This app is used to search Wikipedia with text and Voice input as well.
  - GIT
  - Markdown 
  
- <table style="width:100%" border="0">
+ <table style="width:100%; border:0">
   <tr>
     <td WIDTH=300 HEIGHT=600><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot5.gif" >
 </td>
@@ -32,7 +32,7 @@ This app is used to search Wikipedia with text and Voice input as well.
 </tr>
 </table>
 
- <table style="width:100%" border="0">
+ <table style="width:100%; border:0">
   <tr>
     <td WIDTH=300 HEIGHT=600><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot1.jpg" >
 </td>
