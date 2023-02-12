@@ -22,9 +22,9 @@ This app is used to search Wikipedia with text and Voice input as well.
   <tr>
     <td WIDTH=400 HEIGHT=600><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot5.gif" >
 </td>
-    <td WIDTH=300><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot2.jpg" >
+    <td WIDTH=300 HEIGHT=600><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot2.jpg" >
 </td>
-    <td WIDTH=300><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot3.jpg" >
+    <td WIDTH=300 HEIGHT=600><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot3.jpg" >
 </td>
 </tr>
 </table>
