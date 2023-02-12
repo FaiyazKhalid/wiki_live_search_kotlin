@@ -27,7 +27,7 @@ This app is used to search Wikipedia with text and Voice input as well.
   <tr>
     <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot5.gif" >
 </td>
-    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot2.jpg" >
+    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot4.jpg" >
 </td>
     <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot3.jpg" >
 </td>
@@ -38,7 +38,7 @@ This app is used to search Wikipedia with text and Voice input as well.
   <tr>
     <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot1.jpg" >
 </td>
-    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot4.jpg" >
+    <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot2.jpg" >
 </td>
     <td WIDTH=300 ><img src="https://github.com/MayankChowdhary/WikiSearch/blob/main/screenshots/Screenshot6.jpg" >
 </td>
