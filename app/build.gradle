@@ -3,6 +3,7 @@ plugins {
     id 'androidx.navigation.safeargs'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -51,21 +52,35 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.14.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11'
+
     //shimmer layout
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    //Official SplashScreen
     implementation 'androidx.core:core-splashscreen:1.0.0'
+
+    //Animations
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
     implementation 'com.airbnb.android:lottie:5.2.0'
+
     //Room Library
     implementation "androidx.room:room-runtime:2.5.0"
     implementation "androidx.room:room-ktx:2.5.0"
     kapt "androidx.room:room-compiler:2.5.0"
-//kotlin coroutines
+
+    //kotlin coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 
+    //Speech Recognizer
     implementation 'net.gotev:speech:1.6.2'
     implementation 'com.karumi:dexter:6.2.3'
+
+    //Dagger Hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+
 
 }

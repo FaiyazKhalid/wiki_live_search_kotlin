@@ -7,7 +7,6 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,37 +17,26 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wikisearch.R
 import com.example.wikisearch.databinding.FragmentSearchBinding
-import com.example.wikisearch.repository.WikiRepositoryImpl
 import com.example.wikisearch.room.entity.WikiRoomEntity
-import com.example.wikisearch.utils.RetrofitFactory
 import com.example.wikisearch.utils.SearchRecyclerAdapter
 import com.example.wikisearch.utils.VoiceRecognition
 import com.example.wikisearch.viewmodels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionDeniedResponse
-import com.karumi.dexter.listener.PermissionGrantedResponse
-import com.karumi.dexter.listener.single.PermissionListener
-import net.gotev.speech.GoogleVoiceTypingDisabledException
+import dagger.hilt.android.AndroidEntryPoint
 import net.gotev.speech.Speech
-import net.gotev.speech.SpeechDelegate
-import net.gotev.speech.SpeechRecognitionNotAvailable
 import net.gotev.speech.ui.SpeechProgressView
 
 
+@AndroidEntryPoint
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
-    private val repository: WikiRepositoryImpl by lazy {
-        WikiRepositoryImpl(RetrofitFactory.service)
-    }
     private lateinit var viewState: MainViewState
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
     private lateinit var searchView: SearchView
     var handler: Handler = Handler(Looper.getMainLooper())
     var doubleBackToExitPressedOnce = false
@@ -60,9 +48,6 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
-        viewModel = ViewModelProvider(
-            requireActivity(), MainViewModel.Factory(repository = repository)
-        )[MainViewModel::class.java]
 
         binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root

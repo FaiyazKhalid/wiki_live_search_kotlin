@@ -1,14 +1,14 @@
 package com.example.wikisearch.repository
 
-import android.widget.Toast
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.wikisearch.WikiApp
 import com.example.wikisearch.models.ServiceResponse
 import com.example.wikisearch.models.WikiModelRoot
 import com.example.wikisearch.room.database.getDatabase
 import com.example.wikisearch.room.entity.WikiRoomEntity
 import com.example.wikisearch.utils.ApiService
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -16,9 +16,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
+import javax.inject.Inject
+import javax.inject.Singleton
 
 
-class WikiRepositoryImpl(private val apiService: ApiService) : WikiRepository {
+@Singleton
+class WikiRepositoryImpl @Inject constructor(private val apiService: ApiService, @ApplicationContext private val context: Context) : WikiRepository {
     private val _liveData: MutableLiveData<ServiceResponse> by lazy {
         MutableLiveData<ServiceResponse>()
     }
@@ -76,15 +79,15 @@ class WikiRepositoryImpl(private val apiService: ApiService) : WikiRepository {
             wikiIds.add(it.pageId)
         }
         GlobalScope.launch {
-            getDatabase(WikiApp.appContext).wikiDao().insertAll(wikiRoomData)
-            getDatabase(WikiApp.appContext).wikiDao().deleteOldUsers(wikiIds)
+            getDatabase(context).wikiDao().insertAll(wikiRoomData)
+            getDatabase(context).wikiDao().deleteOldUsers(wikiIds)
         }
     }
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun deleteAllData() {
         GlobalScope.launch {
-            getDatabase(WikiApp.appContext).wikiDao().deleteAll()
+            getDatabase(context).wikiDao().deleteAll()
         }
 
     }

@@ -15,8 +15,10 @@ import androidx.navigation.ui.NavigationUI.navigateUp
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import com.example.wikisearch.R
 import com.example.wikisearch.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private var appBarConfiguration: AppBarConfiguration? = null
     private lateinit var binding: ActivityMainBinding

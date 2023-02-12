@@ -14,8 +14,10 @@ import androidx.fragment.app.Fragment
 import com.example.wikisearch.R
 import com.example.wikisearch.databinding.FragmentWebviewBinding
 import com.example.wikisearch.utils.Constants
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class WebviewFragment : Fragment() {
 
     private lateinit var binding: FragmentWebviewBinding
