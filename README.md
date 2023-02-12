@@ -23,6 +23,9 @@ This app is used to search Wikipedia with text and Voice input as well.
  - GSON
  - GIT
  - Markdown 
+
+**Download APK:**
+https://github.com/MayankChowdhary/WikiSearch/blob/main/apk/WikiSearchAndroid.apk
  
  <table style="width:100%; border:0px">
   <tr>
