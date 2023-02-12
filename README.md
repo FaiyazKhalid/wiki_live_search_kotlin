@@ -17,6 +17,8 @@ This app is used to search Wikipedia with text and Voice input as well.
  - Dexter    
  - Retrofit    
  - GSON
+ - GIT
+ - Markdown 
  
  <table style="width:100%" border="0">
   <tr>
