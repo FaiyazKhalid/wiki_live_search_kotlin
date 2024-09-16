@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
@@ -10,7 +11,6 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -20,20 +20,23 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="@{viewState.recyclerViewVisibility}" />
+            android:visibility="@{viewState.recyclerViewVisibility}"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="361dp" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/empty_view"
+        <TextView
+            android:id="@+id/recyclerviewone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:lottie_fileName="wiki_anim.json"
-            app:lottie_autoPlay="true"
            android:layout_marginBottom="150dp"
             android:visibility="@{viewState.emptyViewVisibility}"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:lottie_loop="true"/>
+           />
+
+        <Button
+            android:id="@+id/reload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="2dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
