@@ -100,33 +100,151 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <include layout="@layout/content_main" />
+        <!--  <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/recyclerView"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginTop="65sp"
+              android:text="Featured Advocate"
+              android:background="#FEF7FF"/>
+  -->
+        <!-- <TextView
+             android:id="@+id/textView"
+             android:textStyle="bold"
+             android:textSize="20sp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:gravity="center"
 
-        <TextView
-            android:id="@+id/textView"
-            android:textStyle="bold"
-            android:textSize="20sp"
+             android:layout_marginTop="80sp"
+             android:visibility="@{viewState.emptyViewVisibility}"
+             android:text="Advocatepedia Today" />
+         <Button
+             android:id="@+id/shareButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="120sp"
+             android:text="s" />-->
+
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="wrap_content">
 
-            android:layout_marginTop="80sp"
-            android:visibility="@{viewState.emptyViewVisibility}"
-            android:text="Advocatepedia Today" />
-        <Button
-            android:id="@+id/shareButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120sp"
-            android:text="s" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_margin="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Birthday Wishes"/>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/wish"
+                    app:contentPadding="20sp"
+                    android:visibility="@{viewState.emptyViewVisibility}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="589dp"
-            android:layout_marginTop="120sp"
-            android:background="#FEF7FF"/>
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"/>
+                <EditText
+                    android:id="@+id/messageText"
+                    android:visibility="@{viewState.emptyViewVisibility}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-20sp"
+                    android:layout_gravity="center"
+                    android:text="I wish you a very very Happy Birthday." />
+                <Button
+                    android:id="@+id/shareButton"
+                    android:visibility="@{viewState.emptyViewVisibility}"
+                    android:layout_marginTop="-13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Share"
+                    android:layout_gravity="center"
+                    />
 
 
+                <TextView
+                    android:layout_margin="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="On Thiis Day"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/otd"
+                    app:contentPadding="20sp"
+                    android:visibility="@{viewState.emptyViewVisibility}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"/>
+                <Button
+                    android:id="@+id/shareButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Share"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:layout_margin="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Feature Advocate"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/report"
+                    app:contentPadding="20sp"
+                    android:visibility="@{viewState.emptyViewVisibility}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"/>
+                <Button
+                    android:id="@+id/shareButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Share"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:layout_margin="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Supreme Court Judgment/order"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/news"
+                    app:contentPadding="20sp"
+                    android:visibility="@{viewState.emptyViewVisibility}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"/>
+
+
+                <Button
+                    android:id="@+id/shareButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Share"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+
+        </ScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
