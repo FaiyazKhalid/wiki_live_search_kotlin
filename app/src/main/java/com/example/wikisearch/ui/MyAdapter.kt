@@ -21,6 +21,7 @@ val itemView = LayoutInflater.from(context).inflate(R.layout.eachitem, parent, f
         return MyViewHolder(itemView)
     }
 
+
     override fun getItemCount(): Int {
         return productArrayList.size
     }
@@ -28,6 +29,10 @@ val itemView = LayoutInflater.from(context).inflate(R.layout.eachitem, parent, f
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = productArrayList[position]
         holder.title.text = currentItem.title
+        holder.description.text = currentItem.description
+    /*    holder.otd.text = currentItem.otd
+        holder.wish.text = currentItem.wish
+        holder.news.text = currentItem.news*/
 
         Picasso.get().load(currentItem.thumbnail).into(holder.image)
     }
@@ -35,10 +40,27 @@ val itemView = LayoutInflater.from(context).inflate(R.layout.eachitem, parent, f
 
         var title : TextView
         var image : ShapeableImageView
+        var description: TextView
+       /* var otd: TextView
+        var wish: TextView
+        var news: TextView*/
 
         init {
             title = itemView.findViewById(R.id.productTitle)
             image = itemView.findViewById(R.id.productImage)
+            description = itemView.findViewById(R.id.description)
+
+
+         /*   otd = itemView.findViewById(R.id.otd)
+            wish = itemView.findViewById(R.id.wish)
+            news = itemView.findViewById(R.id.news)*/
+
         }
+
+
+
+
     }
 }
+
+

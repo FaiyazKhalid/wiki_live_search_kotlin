@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
 
         <variable
             name="viewState"
             type="com.example.wikisearch.ui.MainViewState" />
     </data>
-    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         tools:context=".ui.MainActivity">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -20,13 +21,14 @@
             android:theme="@style/Theme.WikiSearch.AppBarOverlay">
             <com.example.wikisearch.utils.SymmetricProgressBar
                 android:layout_width="match_parent"
+
                 android:visibility="@{viewState.shrimmerVisibility}"
                 android:layout_height="4dp" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="60dp"
                 android:background="@color/white"
                 android:textAlignment="center"
                 app:popupTheme="@style/Theme.WikiSearch.PopupOverlay"
@@ -36,13 +38,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:paddingHorizontal="10dp"
-                    android:orientation="horizontal">
+
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp">
 
                     <pl.droidsonroids.gif.GifImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_weight="0"
+
                         android:src="@drawable/wiki" />
 
                     <androidx.appcompat.widget.SearchView
@@ -50,35 +54,42 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:iconifiedByDefault="false"
                         android:layout_weight="2"
+                        android:iconifiedByDefault="false"
+
                         android:queryHint="Search Wikipedia"
                         android:shadowColor="@color/black"
                         app:defaultQueryHint="Search Wikipedia" />
+
                     <FrameLayout
                         android:layout_width="wrap_content"
-                        android:layout_weight="0"
-                        android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/microphone"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@color/white"
-                        android:visibility="@{viewState.micVisibility}"
-                        app:layout_constraintBottom_toBottomOf="@+id/searchView"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/searchView"
-                        app:srcCompat="@drawable/ic_mic" />
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="0">
+
+                        <ImageView
+                            android:id="@+id/microphone"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@color/white"
+                            android:visibility="@{viewState.micVisibility}"
+                            app:layout_constraintBottom_toBottomOf="@+id/searchView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/searchView"
+                            app:srcCompat="@drawable/ic_mic" />
+
                         <LinearLayout
-                            android:orientation="vertical"
+
+                            android:id="@+id/linearLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/linearLayout">
-                        <net.gotev.speech.ui.SpeechProgressView
-                            android:id="@+id/progress_speech"
-                            android:layout_width="100dp"
-                            android:layout_height="50dp"
-                            android:visibility="@{viewState.micListening}" />
+                            android:orientation="vertical">
+
+                            <net.gotev.speech.ui.SpeechProgressView
+                                android:id="@+id/progress_speech"
+                                android:layout_width="100dp"
+                                android:layout_height="50dp"
+                                android:visibility="@{viewState.micListening}" />
                         </LinearLayout>
                     </FrameLayout>
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -90,5 +101,33 @@
 
         <include layout="@layout/content_main" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:layout_marginTop="80sp"
+            android:visibility="@{viewState.emptyViewVisibility}"
+            android:text="Advocatepedia Today" />
+        <Button
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120sp"
+            android:text="s" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="589dp"
+            android:layout_marginTop="120sp"
+            android:background="#FEF7FF"/>
+
+
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>

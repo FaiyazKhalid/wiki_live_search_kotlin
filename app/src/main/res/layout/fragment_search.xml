@@ -24,19 +24,6 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="361dp" />
 
-        <TextView
-            android:id="@+id/recyclerviewone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-           android:layout_marginBottom="150dp"
-            android:visibility="@{viewState.emptyViewVisibility}"
-           />
 
-        <Button
-            android:id="@+id/reload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="2dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

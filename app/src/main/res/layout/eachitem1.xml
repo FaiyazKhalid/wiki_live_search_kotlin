@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="20dp"
+
+
+    android:layout_margin="9dp"
+    android:id="@+id/cardItem1">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:background="#E6E1E8"
+        android:padding="6dp">
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            android:text="On This Day" />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
