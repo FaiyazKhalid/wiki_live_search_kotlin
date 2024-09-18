@@ -8,8 +8,7 @@ data class Product(
     val description: String,
     val thumbnail: String,
     val otd: String,
-   val wish: String,
-
+    val wish: String,
     val num: String,
     val news: String,
 

@@ -2,8 +2,8 @@
     <string name="app_name">Wiki Search</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Wiki Search</string>
-    <string name="second_fragment_label">Wikipedia</string>
+    <string name="first_fragment_label">Advocatepedia Search</string>
+    <string name="second_fragment_label">Advocatepedia</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 

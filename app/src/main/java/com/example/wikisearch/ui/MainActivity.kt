@@ -10,6 +10,7 @@ import android.os.CountDownTimer
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -30,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.room.util.TableInfo
 import com.example.wikisearch.R
 import com.example.wikisearch.databinding.ActivityMainBinding
+import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 
 import retrofit2.Call
@@ -137,12 +139,6 @@ class MainActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
 
-
-
-
-
-
-
                 } else {
                     // cardView.text = "No products found"
                 }
@@ -216,43 +212,33 @@ class MainActivity : AppCompatActivity() {
         val retrofitData3 = retrofitBuilder3.getProductData()
         retrofitData3.enqueue(object : Callback<MyData?> {
 
-
             @SuppressLint("WrongViewCast")
             override fun onResponse(call: Call<MyData?>, response: Response<MyData?>) {
                 val responseBody = response.body()
                 val productList = responseBody?.products
 
-                // ... (rest of your code)
+                if (productList != null && productList.isNotEmpty()) {
+                    val product = productList[0] // Assuming you want the first product
+                    val titleTextView = findViewById<TextView>(R.id.title)
+                    val descriptionTextView = findViewById<TextView>(R.id.description)
+                    val thumbnailImageView = findViewById<ImageView>(R.id.photo)
 
-                if (productList != null) {
-                    val productNames = productList.joinToString(separator = "\n") { it.news }
+                    titleTextView.text = product.title ?: "No title found"
+                    descriptionTextView.text = product.description ?: "No description available"
 
-                    val productText = TextView(this@MainActivity)
-                    productText.text = productNames
-                    productText.textSize = 20f // Set desired text size
-
-                    // Add TextView to CardView (adjust layout as needed)
-                    cardView3.addView(productText)
-
-                    val shareButton = findViewById<Button>(R.id.shareButton3) // Replace R.id.shareButton with your actual button ID
-                    shareButton.setOnClickListener {
-                        val shareIntent = Intent(Intent.ACTION_SEND)
-                        shareIntent.type = "text/plain"
-                        shareIntent.putExtra(Intent.EXTRA_TEXT, productNames)
-                        startActivity(Intent.createChooser(shareIntent, "Share products"))
-                    }
-
+                    // Load the thumbnail image using Picasso (replace with your Glide instance if needed)
+                    Picasso.get().load(product.thumbnail).into(thumbnailImageView)
                 } else {
-                    // cardView.text = "No products found"
+                    // Handle case where no products are found
+                    // (e.g., display a message or hide the CardView)
                 }
             }
 
             override fun onFailure(call: Call<MyData?>, t: Throwable) {
                 Log.d("Main Activity", "onFailure: " + t.message)
-                // cardView.text = "Failed to load data"
+                // Handle network error (e.g., display an error message)
             }
         })
-
 
         val cardView4 = findViewById<CardView>(R.id.news)
 

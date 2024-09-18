@@ -1,7 +1,7 @@
 package com.example.wikisearch.utils
 
 object Constants {
-    const val BASE_URL = "https://en.wikipedia.org//w/"
-    const val WEBVIEW_PAGE_URL = "https://en.wikipedia.org/wiki/"
-    const val WEBVIEW_PAGE_URL2 = "https://en.wikipedia.org/w/index.php?curid="
+    const val BASE_URL = "https://advocatepedia.com/"
+    const val WEBVIEW_PAGE_URL = "https://advocatepedia.com/"
+    const val WEBVIEW_PAGE_URL2 = "https://advocatepedia.com/index.php?curid="
 }
