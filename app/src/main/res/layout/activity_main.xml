@@ -135,9 +135,7 @@
 
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/photo" />
+            />
 
 
         <ScrollView
@@ -151,9 +149,97 @@
                 android:layout_marginTop="120sp"
                 android:background="#FEF7FF"
                 android:visibility="@{viewState.emptyViewVisibility}"
-
                 android:orientation="vertical">
+                <TextView
 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="Important"
+                    android:visibility="@{viewState.emptyViewVisibility}"
+
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/photo" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/addo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="#E6E1E8"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:id="@+id/addphoto"
+                            android:layout_width="0dp"
+                            android:layout_height="250dp"
+                            android:visibility="@{viewState.emptyViewVisibility}"
+                            app:layout_constraintTop_toBottomOf="@id/addtitle"
+                            android:scaleType="matrix"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/addtitle"
+                            android:visibility="@{viewState.emptyViewVisibility}"
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Title"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/addphoto" />
+
+                        <TextView
+                            android:id="@+id/adddescription"
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Description"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/addtitle" />
+
+                        <EditText
+                            android:id="@+id/messageadd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Add a personalized message"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:padding="24dp"
+                            android:textColor="@android:color/black"
+                            android:visibility="@{viewState.emptyViewVisibility}"
+                            app:layout_constraintTop_toBottomOf="@+id/adddescription"
+                            tools:ignore="MissingConstraints"
+                            tools:layout_editor_absoluteX="8dp" />
+                        <Button
+                            android:id="@+id/shareButtonadd"
+                            android:visibility="@{viewState.emptyViewVisibility}"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="8dp"
+                            android:text="Enquiry"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/wish"
@@ -172,7 +258,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:orientation="vertical">
 
 
@@ -182,7 +267,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="120sp"
                             android:visibility="@{viewState.emptyViewVisibility}"
-
                             android:hint="Add a personalized message"
                             android:inputType="textMultiLine"
                             android:maxLines="5"
@@ -190,79 +274,14 @@
                             android:textColor="@android:color/black" />
 
                         <Button
-                            android:id="@+id/shareButton"
+                            android:id="@+id/num"
                             android:visibility="@{viewState.emptyViewVisibility}"
-
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
-
                             android:layout_marginTop="24dp"
                             android:text="Whatsapp"
-
                             android:textColor="@android:color/white" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:text="On This Day"
-                    android:visibility="@{viewState.emptyViewVisibility}"
-
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/photo" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/otd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                    android:textColor="@android:color/black"
-                    android:visibility="@{viewState.emptyViewVisibility}"
-                    app:cardBackgroundColor="#E6E1E8"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="5dp"
-                    app:contentPadding="30sp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:orientation="vertical">
-
-
-                        <EditText
-                            android:id="@+id/messageText6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="160sp"
-                            android:hint="Add a personalized message"
-                            android:inputType="textMultiLine"
-                            android:maxLines="5"
-                            android:visibility="@{viewState.emptyViewVisibility}"
-
-                            android:padding="24dp"
-                            android:textColor="@android:color/black" />
-
-                        <Button
-                            android:id="@+id/shareButton2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:layout_marginTop="8dp"
-                            android:text="Share"
-                            android:visibility="@{viewState.emptyViewVisibility}"
-
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -343,7 +362,71 @@
                             app:layout_constraintEnd_toEndOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
+
+
                 <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="On This Day"
+                    android:visibility="@{viewState.emptyViewVisibility}"
+
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/photo" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/otd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                    android:textColor="@android:color/black"
+                    android:visibility="@{viewState.emptyViewVisibility}"
+                    app:cardBackgroundColor="#E6E1E8"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    app:contentPadding="30sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+
+                        <EditText
+                            android:id="@+id/messageText6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="160sp"
+                            android:hint="Add a personalized message"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:visibility="@{viewState.emptyViewVisibility}"
+
+                            android:padding="24dp"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/shareButton2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="8dp"
+                            android:text="Share"
+                            android:visibility="@{viewState.emptyViewVisibility}"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

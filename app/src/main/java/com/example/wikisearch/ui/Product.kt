@@ -11,5 +11,10 @@ data class Product(
     val wish: String,
     val num: String,
     val news: String,
+    val addtitle: String,
+    val addphoto: String,
+    val adddescription: String,
+    val addenquiry: String,
+
 
 )
