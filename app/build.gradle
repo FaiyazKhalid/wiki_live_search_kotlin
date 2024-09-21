@@ -10,7 +10,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.mcdevelopers.wikisearch"
+        applicationId "com.advocatepedia.lite"
         minSdk 21
         targetSdk 33
         versionCode 2

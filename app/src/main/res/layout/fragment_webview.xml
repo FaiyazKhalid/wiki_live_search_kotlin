@@ -16,6 +16,6 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:visibility="visible"
-            android:src="@drawable/wiki" />
+            android:src="@drawable/adv" />
     </FrameLayout>
 </layout>
