@@ -403,7 +403,7 @@ class MainActivity : AppCompatActivity() {
                     val thumbnailImageView = findViewById<ImageView>(com.advocatepedia.lite.R.id.photo)
 
                     titleTextView.text = product.title ?: "No title found"
-                    descriptionTextView.text = product.description ?: "No description available"
+                    descriptionTextView.text = product.description1 ?: "No description available"
 
                     // Load the thumbnail image using Picasso (replace with your Glide instance if needed)
                     Picasso.get().load(product.thumbnail).into(thumbnailImageView)

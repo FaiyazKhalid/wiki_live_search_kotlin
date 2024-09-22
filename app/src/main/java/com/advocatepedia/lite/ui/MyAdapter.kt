@@ -28,7 +28,7 @@ val itemView = LayoutInflater.from(context).inflate(R.layout.eachitem, parent, f
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = productArrayList[position]
         holder.title.text = currentItem.title
-        holder.description.text = currentItem.description
+        holder.description.text = currentItem.description1
     /*    holder.otd.text = currentItem.otd
         holder.wish.text = currentItem.wish
         holder.news.text = currentItem.news*/

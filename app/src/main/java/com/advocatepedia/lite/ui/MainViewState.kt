@@ -7,7 +7,7 @@ import androidx.databinding.Bindable
 class MainViewState : BaseObservable() {
 
     @Bindable
-    val title = "Wiki Search Page"
+    val title = "Advocatepedia Search Page"
 
     @Bindable
     var shrimmerVisibility = View.INVISIBLE
