@@ -1,4 +1,4 @@
-package com.advocatepedia.lite;
+package com.advocatepedia.search;
 
 import android.content.Context;
 

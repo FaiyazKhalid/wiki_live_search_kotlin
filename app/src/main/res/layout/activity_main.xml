@@ -6,7 +6,7 @@
 
         <variable
             name="viewState"
-            type="com.advocatepedia.lite.ui.MainViewState" />
+            type="com.advocatepedia.search.ui.MainViewState" />
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:theme="@style/Theme.WikiSearch.AppBarOverlay">
-            <com.advocatepedia.lite.utils.SymmetricProgressBar
+            <com.advocatepedia.search.utils.SymmetricProgressBar
                 android:layout_width="match_parent"
 
                 android:visibility="@{viewState.shrimmerVisibility}"

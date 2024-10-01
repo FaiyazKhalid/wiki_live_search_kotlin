@@ -7,7 +7,7 @@
 
         <variable
             name="viewState"
-            type="com.advocatepedia.lite.ui.MainViewState" />
+            type="com.advocatepedia.search.ui.MainViewState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

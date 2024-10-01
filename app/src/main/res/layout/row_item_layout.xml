@@ -5,10 +5,10 @@
     <data>
         <variable
             name="viewModel"
-            type="com.advocatepedia.lite.viewmodels.MainViewModel"/>
+            type="com.advocatepedia.search.viewmodels.MainViewModel"/>
         <variable
             name="wikiData"
-            type="com.advocatepedia.lite.room.entity.WikiRoomEntity" />
+            type="com.advocatepedia.search.room.entity.WikiRoomEntity" />
     </data>
 
     <androidx.cardview.widget.CardView
