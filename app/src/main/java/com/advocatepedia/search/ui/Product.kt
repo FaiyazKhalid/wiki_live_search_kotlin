@@ -13,6 +13,7 @@ data class Product(
     val addphoto: String,
     val adddescription: String,
     val addenquiry: String,
+    val articles: String,
 
 
 )

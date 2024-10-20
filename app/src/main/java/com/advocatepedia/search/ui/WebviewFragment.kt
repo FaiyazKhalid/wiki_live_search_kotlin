@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -24,6 +25,7 @@ class WebviewFragment : Fragment() {
     private var title: String? = null
     lateinit var browser: WebView
     private lateinit var searchView: SearchView
+
 
 
     override fun onCreateView(
@@ -44,6 +46,9 @@ class WebviewFragment : Fragment() {
         searchView = requireActivity().findViewById(R.id.searchView)
         searchView.visibility=View.GONE
         browser = binding.webview
+
+
+
         browser.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
@@ -57,4 +62,5 @@ class WebviewFragment : Fragment() {
         browser.loadUrl(Constants.WEBVIEW_PAGE_URL + title);
 
     }
+
 }
