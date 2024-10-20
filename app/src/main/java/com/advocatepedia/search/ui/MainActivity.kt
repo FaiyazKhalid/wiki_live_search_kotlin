@@ -1295,7 +1295,7 @@ class MainActivity : AppCompatActivity() {
         val cardView5 = findViewById<CardView>(R.id.news)
 
         val retrofitBuilder5 = Retrofit.Builder()
-            .baseUrl("https://advocatepedia.com/feed/$selectedState/$selectedCourt/")
+            .baseUrl("https://advocatepedia.com/feed/directory/$selectedState/$selectedCourt/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
